@@ -1,4 +1,4 @@
-#include <bits/stdc++.h.h>
+#include <bits/stdc++.h>
 using namespace std;
 #define SIZE 5
 int queuee[SIZE];
@@ -13,7 +13,7 @@ bool isEmpty(){
     }
 }
 bool isFull(){
-    if(rear = SIZE-1){
+    if(rear == SIZE-1){
         return true;
     }else{
         return false;
@@ -35,7 +35,7 @@ void enqueue(int value){
 }
 
 void dequeue(){
-    if(isEmpty() == true && front <= rear){
+    if(isEmpty() == false  && front <= rear){
         front++;
     }else{
         cout << "queue is empty";
@@ -43,7 +43,7 @@ void dequeue(){
 }
 
 int peak(){
-    if(isEmpty() == true && front <= rear){
+    if(isEmpty() == false  && front <= rear){
         return queuee[front];
     }else{
         cout << "queue is empty";
@@ -52,7 +52,7 @@ int peak(){
 }
 
 void display(){
-    if(isEmpty() == true && front <= rear){
+    if(isEmpty() == false && front <= rear){
         for(int i=front; i<=rear; i++){
             cout << queuee[i] << " ";
         }
@@ -65,9 +65,10 @@ int main() {
     enqueue(5);
     enqueue(6);
     enqueue(7);
-    dequeue();
     enqueue(8);
     display();
-    cout << "peak = " << peak();
+    cout << "peak = " << peak() << endl;
+    dequeue();
+    display();
     return 0;
 }
