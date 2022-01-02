@@ -4,9 +4,24 @@ using namespace std;
 int queuee[SIZE];
 int front = -1, rear = -1;
 
+bool isEmpty(){
+    if(front == -1 && rear == -1){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+bool isFull(){
+    if(rear = SIZE-1){
+        return true;
+    }else{
+        return false;
+    }
+}
 void enqueue(int value){
-    if(rear != SIZE-1) {
-        if(front == -1 && rear == -1) {
+    if(isFull() == false) {
+        if(isEmpty()) {
             front++;
             queuee[++rear] = value;
         }
@@ -20,7 +35,7 @@ void enqueue(int value){
 }
 
 void dequeue(){
-    if(front != -1 && rear != -1 && front <= rear){
+    if(isEmpty() == true && front <= rear){
         front++;
     }else{
         cout << "queue is empty";
@@ -28,7 +43,7 @@ void dequeue(){
 }
 
 int peak(){
-    if(front != -1 && rear != -1 && front <= rear){
+    if(isEmpty() == true && front <= rear){
         return queuee[front];
     }else{
         cout << "queue is empty";
@@ -37,7 +52,7 @@ int peak(){
 }
 
 void display(){
-    if(front != -1 && rear != -1 && front <= rear){
+    if(isEmpty() == true && front <= rear){
         for(int i=front; i<=rear; i++){
             cout << queuee[i] << " ";
         }
